@@ -45,8 +45,10 @@ def altera():
         nome = pede_nome()
         telefone = pede_telefone()
         agenda[p] = [nome, telefone]
+        grava()
     else:
         print('Nome não encontrado.')
+
 
 
 def novo():
@@ -54,6 +56,7 @@ def novo():
     nome = pede_nome()
     telefone = pede_telefone()
     agenda.append([nome, telefone])
+    grava()
 
 
 def apaga():
@@ -62,6 +65,7 @@ def apaga():
     p = pesquisa(nome)
     if p is not None:
         del agenda[p]
+        grava()
     else:
         print('Nome não encontrado.')
 
@@ -97,12 +101,11 @@ def menu():
     2 - Alterar
     3 - Apagar
     4 - Listar
-    5 - Gravar
 
 
     0 - Sair
     ''')
-    return valida_faixa_inteiro('Escolha uma opcao: ', 0, 5)
+    return valida_faixa_inteiro('Escolha uma opcao: ', 0, 4)
 
 
 while True:
@@ -117,5 +120,3 @@ while True:
         apaga()
     elif opcao == 4:
         lista()
-    elif opcao == 5:
-        grava()
